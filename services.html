@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services | Feni Janitorial Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Professional cleaning, fumigation and facility management services in Accra, Ghana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #0d47a1;
+      --secondary: #34a853;
+      --accent: #fbbc05;
+      --text: #202124;
+      --text-light: #5f6368;
+      --background: #ffffff;
+      --surface: #f8f9fa;
+      --border: #dadce0;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --radius: 8px;
+      --radius-lg: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 16px;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      color: white;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(26, 115, 232, 0.05);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-description {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--text-light);
+    }
+
+    .mt-2 {
+      margin-top: 16px;
+    }
+
+    .mt-3 {
+      margin-top: 24px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: var(--primary);
+      color: white;
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .top-bar-contact {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-contact a {
+      color: white;
+    }
+
+    .top-bar-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .top-pill {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-main {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo-main span {
+      color: var(--secondary);
+    }
+
+    .logo-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-chip {
+      display: inline-block;
+      background-color: rgba(26, 115, 232, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .service-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .service-description {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Process Section */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .step {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .step-text {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .form-note {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+    }
+
+    /* CTA Section */
+    .cta-band {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 40px;
+      border-radius: var(--radius-lg);
+    }
+
+    .cta-band-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cta-band-text {
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .cta-inline {
+      font-size: 16px;
+    }
+
+    .cta-inline a {
+      color: white;
+    }
+
+    .cta-whatsapp {
+      background-color: white;
+      color: var(--primary);
+      border: none;
+    }
+
+    .cta-whatsapp:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--surface);
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        gap: 16px;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .nav-cta {
+        display: none;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .cta-band {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+      
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header & Nav -->
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="logo">
+            <div class="logo-main"><span>Feni</span> Janitorial Services</div>
+            <div class="logo-sub">Cleaning • Fumigation • Hygiene Solutions</div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            ☰
+          </button>
+
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Request a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Services Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Our Services</div>
+            <h1 class="section-title">Cleaning, fumigation and facility care</h1>
+            <p class="section-description">
+              A complete range of services to keep your environment clean, safe and well-maintained.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- Residential -->
+            <div class="service-card">
+              <div class="service-chip">Homes & Apartments</div>
+              <div class="service-name">Residential Cleaning</div>
+              <p class="service-description">
+                Regular and deep cleaning for homes, apartments and estates—covering
+                bedrooms, kitchens, bathrooms and living areas.
+              </p>
+            </div>
+            
+            <!-- Office -->
+            <div class="service-card">
+              <div class="service-chip">Offices & Facilities</div>
+              <div class="service-name">Office & Commercial Cleaning</div>
+              <p class="service-description">
+                Daily or scheduled cleaning for offices, shops, banks, schools, churches
+                and commercial facilities.
+              </p>
+            </div>
+            
+            <!-- Fumigation -->
+            <div class="service-card">
+              <div class="service-chip">Health & Safety</div>
+              <div class="service-name">Fumigation & Pest Control</div>
+              <p class="service-description">
+                Safe fumigation and pest control against rodents, insects and other pests
+                using approved chemicals and methods.
+              </p>
+            </div>
+            
+            <!-- Post-construction -->
+            <div class="service-card">
+              <div class="service-chip">New Builds & Renovations</div>
+              <div class="service-name">Post-Construction Cleaning</div>
+              <p class="service-description">
+                Detailed cleaning after building or renovation—removing dust, paint and
+                debris to make your space move-in ready.
+              </p>
+            </div>
+            
+            <!-- Sofa & carpet -->
+            <div class="service-card">
+              <div class="service-chip">Upholstery Care</div>
+              <div class="service-name">Sofa & Carpet Cleaning</div>
+              <p class="service-description">
+                Fabric and carpet cleaning to remove stains, odours and deeply embedded dirt.
+              </p>
+            </div>
+            
+            <!-- Windows -->
+            <div class="service-card">
+              <div class="service-chip">Glass & Façade</div>
+              <div class="service-name">Window & Glass Cleaning</div>
+              <p class="service-description">
+                Streak-free cleaning of windows, glass doors and partitions for a brighter space.
+              </p>
+            </div>
+            
+            <!-- Floors -->
+            <div class="service-card">
+              <div class="service-chip">Floors & Surfaces</div>
+              <div class="service-name">Floor Polishing</div>
+              <p class="service-description">
+                Machine-assisted scrubbing and polishing to restore shine and increase lifespan.
+              </p>
+            </div>
+            
+            <!-- Facility management -->
+            <div class="service-card">
+              <div class="service-chip">Integrated Facility Care</div>
+              <div class="service-name">Facility Management</div>
+              <p class="service-description">
+                Ongoing management of cleaning, hygiene and basic upkeep for buildings and compounds.
+              </p>
+            </div>
+            
+            <!-- Waste -->
+            <div class="service-card">
+              <div class="service-chip">Waste & Hygiene</div>
+              <div class="service-name">Waste Management</div>
+              <p class="service-description">
+                Structured waste collection and handling to keep your premises clean and compliant.
+              </p>
+            </div>
+            
+            <!-- Gardening -->
+            <div class="service-card">
+              <div class="service-chip">Outdoor Care</div>
+              <div class="service-name">Gardening & Groundskeeping</div>
+              <p class="service-description">
+                Gardening, lawn care and outdoor cleaning for neat and presentable surroundings.
+              </p>
+            </div>
+            
+            <!-- Machine rental -->
+            <div class="service-card">
+              <div class="service-chip">Equipment</div>
+              <div class="service-name">Machine Rental</div>
+              <p class="service-description">
+                Rental of professional cleaning machines and equipment for specialised projects.
+              </p>
+            </div>
+            
+            <!-- Consumables -->
+            <div class="service-card">
+              <div class="service-chip">Consumables</div>
+              <div class="service-name">Supply of Consumables</div>
+              <p class="service-description">
+                Supply of cleaning chemicals, tissues, soap, sanitizers, bins and other hygiene products.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process section -->
+      <section class="section" style="background-color: var(--surface);">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">How We Work</div>
+            <h2 class="section-title">Simple 4-step service process</h2>
+          </div>
+
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-title">Request a quote</div>
+              <div class="step-text">
+                Contact us with your cleaning or fumigation needs (home or facility).
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-title">Site visit / assessment</div>
+              <div class="step-text">
+                We assess the space and recommend the best solution and schedule.
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-title">Service delivery</div>
+              <div class="step-text">
+                Our team executes the work professionally, safely and on time.
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-title">After-service support</div>
+              <div class="step-text">
+                We review the job with you and plan ongoing or follow-up services where needed.
+              </div>
+            </div>
+          </div>
+
+          <p class="form-note mt-3">
+            Ready to begin? Use the Contact page to send a WhatsApp request or call us directly.
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section">
+        <div class="container">
+          <div class="cta-band">
+            <div>
+              <div class="cta-band-title">Need a specific service?</div>
+              <div class="cta-band-text">
+                Get a customized quote for your cleaning, fumigation or facility management needs.
+              </div>
+              <div class="cta-inline">
+                Call <strong><a href="tel:+233249720557" style="color:inherit;">+233 24 972 0557</a></strong>
+                or email <strong><a href="mailto:fenijanitorialservices@gmail.com" style="color:inherit;">fenijanitorialservices@gmail.com</a></strong>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn-outline cta-whatsapp">
+              Request a Quote
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> Feni Janitorial Services. All rights reserved.
+          </div>
+          <div class="footer-links">
+            <span>Accra, Ghana</span>
+            <a href="tel:+233249720557">Call Us</a>
+            <a href="mailto:fenijanitorialservices@gmail.com">Email Us</a>
+            <a href="https://wa.me/233249720557" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileMenuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Update copyright year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
